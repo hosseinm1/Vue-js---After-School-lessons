@@ -68,7 +68,8 @@
             methods:{
                 addToCart: function(){
                     this.cart.push(this.afterSchool.id);
-                    
+                    if(this.afterSchool.numberOfsits>0)
+                    return(this.afterSchool.numberOfsits -=1)
                     
                 },
                 showCheckout(){
