@@ -16,6 +16,7 @@
                 {{ cartItemCount }}
                 Checkout
                 <span class="fas fa-shopping-cart"></span>
+  
             </button>
         </header>
         <br>
@@ -36,6 +37,12 @@
                 <span class="fas fa-cart-plus"></span>
             </button> -->
             <button class="btn btn-primary" v-on:click = 'addToCart' v-if = "canAddToCart">Add to Cart</button>
+            <span v-if="afterSchool.numberOfsits === cartItemCount">There is no more Sits!</span>
+            <span v-else-if="afterSchool.numberOfsits - cartItemCount < 5 ">
+                <br/>
+                only {{afterSchool.numberOfsits - cartItemCount}} left!
+            </span>
+            <span v-else> Buy Now!</span>
             <button class="btn btn-primary" disabled = "disabled" v-else>Add to Cart</button>
             
             
@@ -43,6 +50,17 @@
         <div v-else>
             <!--Checkout Page -->
             <h2>Checkout</h2>
+            <p>
+                <strong>First Name:</strong>
+                <input v-model="order.firstName"/>
+            </p>
+            <p>
+                <strong>Last Name:</strong>
+                <input v-model="order.lastName"/>
+            </p>
+            <h2>Order Information</h2>
+            <p>First Name: {{order.firstName}}</p>
+            <p>Last Name: {{order.lastName}}</p>
         </div>
         </main>
 
@@ -52,6 +70,10 @@
             el:'#app',
             data: {
                 showProducts: true,
+                order:{
+                    firstName: ' ',
+                    lastName: ' '
+                },
                 sitename: 'After School',
                 afterSchool:{
                     id:2001,
@@ -59,9 +81,10 @@
                     location:'Dubai',
                     price:20000,
                     image: 'assets/math.jpg',
-                    numberOfsits: 5
+                    numberOfsits: 10
                     
                 },
+                
                 cart: []
                 
             },
