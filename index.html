@@ -91,8 +91,12 @@
             methods:{
                 addToCart: function(){
                     this.cart.push(this.afterSchool.id);
+<<<<<<< HEAD
                     if(this.afterSchool.numberOfsits);
                     //return(this.afterSchool.numberOfsits -=1)
+=======
+                    
+>>>>>>> b1fc5c794dac5e9d2455c0c1a07a33a61b06b844
                     
                 },
                 showCheckout(){
@@ -107,7 +111,11 @@
 
                  },
                  canAddToCart: function() {
+<<<<<<< HEAD
                      return this.afterSchool.numberOfsits > 0 ;
+=======
+                     return this.afterSchool.numberOfsits  > this.cartItemCount ;
+>>>>>>> b1fc5c794dac5e9d2455c0c1a07a33a61b06b844
                     }
                 
 
