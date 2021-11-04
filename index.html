@@ -37,14 +37,6 @@
                 <span class="fas fa-cart-plus"></span>
             </button> -->
             <button class="btn btn-primary" v-on:click = 'addToCart' v-if = "canAddToCart">Add to Cart</button>
-            <span v-if="afterSchool.numberOfsits === cartItemCount">There is no more Sits!</span>
-            <span v-else-if="afterSchool.numberOfsits - cartItemCount < 5 ">
-                <br/>
-                only {{afterSchool.numberOfsits - cartItemCount}} left!
-            </span>
-            <span v-else> Buy Now!</span>
-            <button class="btn btn-primary" disabled = "disabled" v-else>Add to Cart</button>
-            
             
         </div>
         <div v-else>
@@ -90,7 +82,9 @@
             },
             methods:{
                 addToCart: function(){
-                    this.cart.push(this.afterSchool.id);             
+                    this.cart.push(this.afterSchool.id);  
+                    if(this.afterSchool.numberOfsits>0)
+                    return(this.afterSchool.numberOfsits -=1)           
                     
                 },
                 showCheckout(){
@@ -105,7 +99,7 @@
 
                  },
                  canAddToCart: function() {
-                     return this.afterSchool.numberOfsits  > this.cartItemCount ;
+                     return this.afterSchool.numberOfsits  > 0 ;
                     }
                 
 
