@@ -91,8 +91,8 @@
             methods:{
                 addToCart: function(){
                     this.cart.push(this.afterSchool.id);
-                    if(this.afterSchool.numberOfsits>0)
-                    return(this.afterSchool.numberOfsits -=1)
+                    if(this.afterSchool.numberOfsits);
+                    //return(this.afterSchool.numberOfsits -=1)
                     
                 },
                 showCheckout(){
@@ -107,7 +107,7 @@
 
                  },
                  canAddToCart: function() {
-                     return this.afterSchool.numberOfsits  > 0 ;
+                     return this.afterSchool.numberOfsits > 0 ;
                     }
                 
 
